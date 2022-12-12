@@ -1,22 +1,11 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline {
 agent any 
 stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
-            }
+        stage('Build') {
+            steps{ echo "hi build" }
+                        }
+        stage('Test') {
+            steps{ echo "hi test " }
+                        }
         }
-        stage('Test'){
-            steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make publish'
-            }
-        }
-    }
 }
